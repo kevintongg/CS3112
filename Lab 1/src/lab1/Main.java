@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    static Scanner sc = new Scanner(System.in);
+    private static final Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
 
@@ -33,7 +33,7 @@ public class Main {
         }
     }
 
-    private static int primeNumbers(int n) {
+    private static void primeNumbers(int n) {
 
         int counter = 1;
         int num = 3;
@@ -57,14 +57,11 @@ public class Main {
             counter = 1;
             num++;
         }
-
-        return num;
     }
 
-    private static int sieve(int n) {
+    private static void sieve(int n) {
 
         boolean[] primes = new boolean[n];
-        int count = 1;
 
         for (int i = 2; i < Math.sqrt(n); i++) {
             for (int j = 2; j * i < n; j++) {
@@ -78,11 +75,9 @@ public class Main {
                 System.out.println(i + " ");
             }
         }
-
-        return count;
     }
 
-    private static int primeFactorization(int n) {
+    private static void primeFactorization(int n) {
 
         int counter;
 
@@ -96,7 +91,5 @@ public class Main {
                 System.out.println(i + "^" + counter);
             }
         }
-
-        return n;
     }
 }
