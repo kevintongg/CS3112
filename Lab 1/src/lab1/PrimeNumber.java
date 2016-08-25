@@ -14,7 +14,7 @@ public class PrimeNumber {
         n = sc.nextInt();
 
         if (n >= 1) {
-            System.out.println("First " + n + " lab1 numbers are:");
+            System.out.println("First " + n + " prime numbers are:");
             //2 is a known lab1 number
             System.out.println(2);
         }
