@@ -40,7 +40,7 @@ public class Main {
 
         if (n >= 1) {
             System.out.println("The first " + n + " prime number(s) is/are:");
-            System.out.print(2 + " ");
+            System.out.print(2 + " "); // 2 is a known prime
         }
 
         for (int i = 2; i <= n; ) {
