@@ -19,11 +19,11 @@ function dfs(tree, val) {
 
 // Iterative
 function dfs(tree, val) {
-    let stack = []
+    // let stack = []
 
     stack.push(tree);
     while (stack.length > 0) {
-        let node = stack.pop();
+        // let node = stack.pop();
 
         if (node.val === val) {
             return true;
