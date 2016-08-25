@@ -11,9 +11,9 @@ public class Main {
         int choice;
 
         System.out.println("Please pick a program to run.");
-        System.out.println("1. Prime numbers");
-        System.out.println("2. Prime numbers not exceeding n");
-        System.out.println("3. Prime factorization");
+        System.out.println("1. Output the first n primes");
+        System.out.println("2. List all primes not exceeding n");
+        System.out.println("3. Output the prime factorization of n");
         System.out.println("Enter 0 to quit.");
         choice = sc.nextInt();
 
