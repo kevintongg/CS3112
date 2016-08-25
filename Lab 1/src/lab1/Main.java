@@ -40,7 +40,7 @@ public class Main {
 
         if (n >= 1) {
             System.out.println("The first " + n + " prime number(s) is/are:");
-            System.out.println(2);
+            System.out.print(2 + " ");
         }
 
         for (int i = 2; i <= n; ) {
@@ -51,7 +51,7 @@ public class Main {
                 }
             }
             if (counter != 0) {
-                System.out.println(num);
+                System.out.print(" " + num + " ");
                 i++;
             }
             counter = 1;
@@ -72,7 +72,7 @@ public class Main {
         }
         for (int i = 2; i < n; i++) {
             if (!primes[i]) {
-                System.out.println(i + " ");
+                System.out.print(i + " ");
             }
         }
     }
@@ -88,7 +88,7 @@ public class Main {
                 counter++;
             }
             if (counter != 0) {
-                System.out.println(i + "^" + counter);
+                System.out.print(i + "^" + counter + " ");
             }
         }
     }
