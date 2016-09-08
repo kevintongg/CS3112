@@ -74,7 +74,7 @@ public class Main {
         }
 
         System.out.println("Array before insertion sort: " + Arrays.toString(list));
-        selectionSort(list);
+        insertionSort(list);
         System.out.println("Array after insertion sort: " + Arrays.toString(list));
 
     }
@@ -101,14 +101,12 @@ public class Main {
     private static void insertionSort(int[] list) {
 
         for (int i = 1; i < list.length; i++) {
-            int current = list[i];
+            int temp = list[i];
             int j;
-            for (j = i + 1; j >= 0 && list[j] > current; j--) {
-                list[j + 1] = list[j];
+            for (j = i - 1; i >= 0 && list[i] > temp; i--) {
+                list[i + 1] = list[i];
             }
-
-            list[j + 1] = current;
+            list[i + 1] = temp;
         }
-
     }
 }
