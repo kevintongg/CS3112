@@ -1,4 +1,3 @@
-# Created by .ignore support plugin (hsz.mobi)
 ### Example user template template
 ### Example user template
 
@@ -7,8 +6,7 @@
 *.iml
 out
 gen
-.gitignore
+
 .idea/
 CS3112.iml
-Prime/Prime.iml
-
+Lab 1/Lab 1.iml
