@@ -37,9 +37,9 @@ public class Main {
                     System.out.println("Here we will compute a^n where 'a' and 'n' are positive integers.");
 
                     System.out.println("Please enter a value for a: ");
-                    a = SC.nextInt();
+                    a = SC.nextLong();
                     System.out.println("Please enter a value for n: ");
-                    n = SC.nextInt();
+                    n = SC.nextLong();
 
                     System.out.println("For your value of a = " + a + " and n = " + n + " your computation of a^n is: " + divideAndConquer(a, n));
                     break;
