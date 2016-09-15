@@ -5,7 +5,6 @@
 .idea
 *.iml
 out
-gen
 
 .idea/
 CS3112.iml
