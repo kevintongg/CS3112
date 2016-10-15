@@ -21,7 +21,6 @@ public class Main {
       System.out.println("Enter 0 to quit.");
       while (!SC.hasNextInt()) {
         SC.nextLine();
-
       }
       choice = SC.nextInt();
       switch (choice) {
