@@ -53,10 +53,10 @@ public class Main {
     }
 
     for (int i : array) {
-      System.out.println(i);
+      System.out.print(i + " ");
     }
 
-    System.out.println("\n" + bruteForceAlgorithm(array));
+    System.out.println("\n" + "Max sum is: " + bruteForceAlgorithm(array));
   }
 
   private static void divideAndConquer() {
@@ -68,11 +68,12 @@ public class Main {
     }
 
     for (int i : array) {
-      System.out.println(i);
+      System.out.print(i + " ");
     }
 
-//    System.out.println("\n" + MSAAlgorithm(array, 1, array.length - 1));
-    System.out.println("\n" + MSAAlgorithm(array));
+    int maxSum = maximumSubarray(array, 0, array.length - 1);
+
+    System.out.println("\n" + "Max sum is: " + maxSum);
   }
 
   private static int bruteForceAlgorithm(int[] array) {
@@ -93,79 +94,52 @@ public class Main {
 
   }
 
-//  private static int MCSAlgorithm(int[] array, int low, int mid, int high) {
-//
-//    int leftSum = Integer.MIN_VALUE;
-//    int sum1 = 0;
-//    int maxLeft = 0;
-//
-//    for (int i = mid; i > low; i--) {
-//      sum1 += array[i];
-//      if (sum1 > leftSum) {
-//        leftSum = sum1;
-//        maxLeft = i;
-//      }
-//    }
-//
-//    int rightSum = Integer.MIN_VALUE;
-//    int sum2 = 0;
-//    int maxRight = 0;
-//
-//    for (int j = mid + 1; j < high; j++) {
-//      sum2 += array[j];
-//      if (sum2 > rightSum) {
-//        rightSum = sum2;
-//        maxRight = j;
-//      }
-//    }
-//
-//    return maxLeft + maxRight;
-//
-//  }
-//
-//  private static int MSAAlgorithm(int[] array, int low, int high) {
-//
-//    int mid;
-//
-//    if (high == low) {
-//      return array[low];
-//    } else {
-//      mid = (low + high) / 2;
-//      int leftLow = MSAAlgorithm(array, low, mid);
-//      int leftHigh = MSAAlgorithm(array, low, mid);
-//      int leftSum = MSAAlgorithm(array, low, mid);
-//
-//      int rightLow = MSAAlgorithm(array, mid + 1, high);
-//      int rightHigh = MSAAlgorithm(array, mid + 1, high);
-//      int rightSum = MSAAlgorithm(array, mid + 1, high);
-//
-//      int crossLow = MCSAlgorithm(array, low, mid, high);
-//      int crossHigh = MCSAlgorithm(array, low, mid, high);
-//      int crossSum = MCSAlgorithm(array, low, mid, high);
-//
-//      if (leftSum >= rightSum && leftSum >= crossSum) {
-//        return leftSum;
-//      } else if (rightSum >= leftSum && rightSum >= crossSum) {
-//        return rightSum;
-//      } else {
-//        return crossSum;
-//      }
-//    }
-//  }
+  private static int maxCrossingSubarray(int array[], int low, int mid, int high) {
 
-  private static int MSAAlgorithm(int[] array) {
+    int sum = 0;
+    int leftSum = Integer.MIN_VALUE;
 
-    int sum = array[0];
-    int max = array[0];
-
-    for (int i = 1; i < array.length; i++) {
-      sum = Math.max(sum + array[i], array[i]);
-      max = Math.max(max, sum);
+    for (int i = mid; i >= low; i--) {
+      sum += array[i];
+      if (sum > leftSum)
+        leftSum = sum;
     }
 
-    return max;
+    sum = 0;
+    int rightSum = Integer.MIN_VALUE;
 
+    for (int i = mid + 1; i <= high; i++) {
+      sum += array[i];
+      if (sum > rightSum)
+        rightSum = sum;
+    }
+
+    return leftSum + rightSum;
   }
+
+  private static int maximumSubarray(int array[], int low, int high) {
+
+    if (low == high)
+      return array[low];
+
+    int mid = (low + high) / 2;
+
+    return max(maximumSubarray(array, low, mid),
+        maximumSubarray(array, mid + 1, high),
+        maxCrossingSubarray(array, low, mid, high));
+  }
+
+//  private static int MSAAlgorithm(int[] array) {
+//
+//    int sum = array[0];
+//    int max = array[0];
+//
+//    for (int i = 1; i < array.length; i++) {
+//      sum = Math.max(sum + array[i], array[i]);
+//      max = Math.max(max, sum);
+//    }
+//
+//    return max;
 
   private static int max(int a, int b) {
     return (a > b) ? a : b;
