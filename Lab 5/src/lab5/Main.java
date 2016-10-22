@@ -129,18 +129,6 @@ public class Main {
         maxCrossingSubarray(array, low, mid, high));
   }
 
-//  private static int MSAAlgorithm(int[] array) {
-//
-//    int sum = array[0];
-//    int max = array[0];
-//
-//    for (int i = 1; i < array.length; i++) {
-//      sum = Math.max(sum + array[i], array[i]);
-//      max = Math.max(max, sum);
-//    }
-//
-//    return max;
-
   private static int max(int a, int b) {
     return (a > b) ? a : b;
   }
