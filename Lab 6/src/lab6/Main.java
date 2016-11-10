@@ -47,7 +47,7 @@ public class Main {
 
   private static <E extends Comparable<E>> void heapSort(E[] list) {
 
-    // Create a heap of whatever data type
+    // Create a heap
     Heap<E> heap = new Heap<>();
 
     // Add elements to the heap
