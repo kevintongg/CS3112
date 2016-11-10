@@ -31,13 +31,13 @@ public class MergeKSortedLists {
     }
 
     while (count < nk) {
-      HeapNode node = extractMin();
+      HeapNode node = extractMin(); // get min
       result[count] = node.data;
       pointers[node.listNum]++;
       if (pointers[node.listNum] < n) {
-        insert(array[node.listNum][pointers[node.listNum]], node.listNum); // insert the next element from the list
+        insert(array[node.listNum][pointers[node.listNum]], node.listNum); // insert next element in list
       } else {
-        insert(Integer.MAX_VALUE, node.listNum); // if any of this list burns out, insert +infinity
+        insert(Integer.MAX_VALUE, node.listNum); // if no more, put positive infinity
       }
       count++;
     }
@@ -46,51 +46,49 @@ public class MergeKSortedLists {
 
 
   private void insert(int data, int listNum) {
-    if (position == 0) { // check if Heap is empty
+    if (position == 0) { // is heap empty?
       heap[position + 1] = new HeapNode(data, listNum); // insert the first element in heap
       position = 2;
     } else {
       heap[position++] = new HeapNode(data, listNum);// insert the element to the end
-      bubbleUp(); // call the bubble up operation
+      bubbleUp();
     }
   }
 
   private void bubbleUp() {
-    int pos = position - 1; // last position
-    while (pos > 0 && heap[pos / 2].data > heap[pos].data) { // check if its parent is greater.
-      HeapNode y = heap[pos]; // if yes, then swap
-      heap[pos] = heap[pos / 2];
-      heap[pos / 2] = y;
-      pos = pos / 2; // make pos to its parent for next iteration.
+    int position = this.position - 1; // get the last position
+    while (position > 0 && heap[position / 2].data > heap[position].data) { // is the parent greater?
+      HeapNode node = heap[position]; // if so, swap it
+      heap[position] = heap[position / 2];
+      heap[position / 2] = node;
+      position = position / 2; // make position to the parent for next round
     }
   }
 
   private HeapNode extractMin() {
-    HeapNode min = heap[1]; // extract the root
-    heap[1] = heap[position - 1]; // replace the root with the last element in the heap
-    heap[position - 1] = null; // set the last Node as NULL
+    HeapNode min = heap[1]; // get the root
+    heap[1] = heap[position - 1]; // replace root with the last element in the heap
+    heap[position - 1] = null; // set the last node as null
     position--; // reduce the position pointer
-    sinkDown(1); // sink down the root to its correct position
+    sinkDown(1); // sink down root to its correct position
     return min;
   }
 
   private void sinkDown(int k) {
     int smallest = k;
-    // check which is smaller child , 2k or 2k+1.
     if (2 * k < position && heap[smallest].data > heap[2 * k].data) {
       smallest = 2 * k;
     }
     if (2 * k + 1 < position && heap[smallest].data > heap[2 * k + 1].data) {
       smallest = 2 * k + 1;
     }
-    if (smallest != k) { // if any if the child is small, swap
+    if (smallest != k) {
       swap(k, smallest);
-      sinkDown(smallest); // call recursively
+      sinkDown(smallest);
     }
   }
 
   private void swap(int a, int b) {
-    // System.out.println("swappinh" + mH[a] + " and " + mH[b]);
     HeapNode temp = heap[a];
     heap[a] = heap[b];
     heap[b] = temp;
