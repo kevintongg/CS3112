@@ -3,7 +3,7 @@ package lab6;
 import java.util.ArrayList;
 import java.util.List;
 
-class Heap<E extends Comparable<E>> {
+public class Heap<E extends Comparable<E>> {
 
   private List<E> list = new ArrayList<>();
 

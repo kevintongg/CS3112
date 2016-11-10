@@ -1,15 +1,14 @@
 package lab6;
 
+import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
 
-  public static void main(String[] args) throws InterruptedException {
+  public static void main(String[] args) {
 
     Scanner sc = new Scanner(System.in);
-
-    // Test
-    Integer[] integers = {23, 3, 94, 2, 11, 9};
 
     int choice;
     do {
@@ -23,13 +22,26 @@ public class Main {
       choice = sc.nextInt();
       switch (choice) {
         case 1:
+          Random random = new Random();
+          Integer[] integers = new Integer[10];
+          for (int i = 0; i < integers.length; i++) {
+            integers[i] = random.nextInt(20) - 10;
+          }
+
           System.out.println("Array before heap sort");
           printArray(integers);
           System.out.println("\nNow sorting...");
-          Thread.sleep(1250);
+          try {
+            Thread.sleep(1500);
+          } catch (InterruptedException e) {
+            System.err.format("InterruptedException: %s%n", e);
+          }
           heapSort(integers);
           System.out.println("\nArray after heap sort");
           printArray(integers);
+          break;
+        case 2:
+          mergeKSortedLists();
           break;
       }
       if (choice < 0 || choice > 2) {
@@ -59,6 +71,37 @@ public class Main {
     for (int i = list.length - 1; i >= 0; i--) {
       list[i] = heap.remove();
     }
+  }
+
+  private static void mergeKSortedLists() {
+
+    int[][] array = new int[4][];
+
+    array[0] = new int[]{3, 5, 12, 15};
+    array[1] = new int[]{6, 10, 16, 19};
+    array[2] = new int[]{2, 9, 11, 22};
+    array[3] = new int[]{4, 14, 20, 24};
+
+    System.out.println("we will have four arrays from the board.");
+    System.out.println("Array 1: " + Arrays.toString(array[0]));
+    System.out.println("Array 2: " + Arrays.toString(array[1]));
+    System.out.println("Array 3: " + Arrays.toString(array[2]));
+    System.out.println("Array 4: " + Arrays.toString(array[3]));
+
+    System.out.println("\nWe will now merge these four arrays.\n");
+
+    System.out.println("Now merging...");
+
+    try {
+      Thread.sleep(1500);
+    } catch (InterruptedException e) {
+      System.err.format("InterruptedException: %s%n", e);
+    }
+
+    MergeKSortedLists m = new MergeKSortedLists(array.length);
+    int result[] = m.merge(array, array.length, array[0].length);
+    System.out.println("\nResult: " + Arrays.toString(result));
+
   }
 
   private static <E extends Comparable<E>> void printArray(E[] list) {
