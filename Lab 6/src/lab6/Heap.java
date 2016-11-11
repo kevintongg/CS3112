@@ -29,7 +29,7 @@ public class Heap<E extends Comparable<E>> {
 
     // Append to the heap
     list.add(newObject);
-    // The index of last node
+    // The index of last NODE
     int currentIndex = list.size() - 1;
 
     while (currentIndex > 0) {

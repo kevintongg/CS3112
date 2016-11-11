@@ -1,20 +1,20 @@
 package lab6;
 
-public class MergeKSortedLists {
+class MergeKSortedLists {
 
+  final private HeapNode[] HEAP;
   private int position;
-  private HeapNode[] heap;
 
-  public MergeKSortedLists(int k) {
-    heap = new HeapNode[k + 1];
+  MergeKSortedLists(int k) {
+    HEAP = new HeapNode[k + 1];
     position = 0;
-    heap[0] = new HeapNode(0, -1);
+    HEAP[0] = new HeapNode(0, -1);
   }
 
-  protected int[] merge(int[][] array, int k, int n) {
+  int[] merge(int[][] array, int k, int n) {
 
-    int nk = n * k;
-    int[] result = new int[nk];
+    int nkProduct = n * k;
+    int[] result = new int[nkProduct];
     int count = 0;
 
     int[] pointers = new int[k];
@@ -30,14 +30,14 @@ public class MergeKSortedLists {
       }
     }
 
-    while (count < nk) {
+    while (count < nkProduct) {
       HeapNode node = extractMin(); // get min
-      result[count] = node.data;
-      pointers[node.listNum]++;
-      if (pointers[node.listNum] < n) {
-        insert(array[node.listNum][pointers[node.listNum]], node.listNum); // insert next element in list
+      result[count] = node.NODE;
+      pointers[node.LIST_NUM]++;
+      if (pointers[node.LIST_NUM] < n) {
+        insert(array[node.LIST_NUM][pointers[node.LIST_NUM]], node.LIST_NUM); // insert next element in list
       } else {
-        insert(Integer.MAX_VALUE, node.listNum); // if no more, put positive infinity
+        insert(Integer.MAX_VALUE, node.LIST_NUM); // if no more, put positive infinity
       }
       count++;
     }
@@ -46,40 +46,40 @@ public class MergeKSortedLists {
 
 
   private void insert(int data, int listNum) {
-    if (position == 0) { // is heap empty?
-      heap[position + 1] = new HeapNode(data, listNum); // insert the first element in heap
+    if (position == 0) { // is HEAP empty?
+      HEAP[position + 1] = new HeapNode(data, listNum); // if so, insert the first element in HEAP
       position = 2;
     } else {
-      heap[position++] = new HeapNode(data, listNum);// insert the element to the end
+      HEAP[position++] = new HeapNode(data, listNum);// if not, insert the element to the end
       bubbleUp();
     }
   }
 
   private void bubbleUp() {
     int position = this.position - 1; // get the last position
-    while (position > 0 && heap[position / 2].data > heap[position].data) { // is the parent greater?
-      HeapNode node = heap[position]; // if so, swap it
-      heap[position] = heap[position / 2];
-      heap[position / 2] = node;
-      position = position / 2; // make position to the parent for next round
+    while (position > 0 && HEAP[position / 2].NODE > HEAP[position].NODE) { // is the parent greater?
+      HeapNode node = HEAP[position]; // if so, swap
+      HEAP[position] = HEAP[position / 2];
+      HEAP[position / 2] = node;
+      position = position / 2; // make position to the parent for next time
     }
   }
 
   private HeapNode extractMin() {
-    HeapNode min = heap[1]; // get the root
-    heap[1] = heap[position - 1]; // replace root with the last element in the heap
-    heap[position - 1] = null; // set the last node as null
+    HeapNode min = HEAP[1]; // get the root
+    HEAP[1] = HEAP[position - 1]; // replace root with the last element in the HEAP
+    HEAP[position - 1] = null; // set the last NODE as null
     position--; // reduce the position pointer
-    sinkDown(1); // sink down root to its correct position
+    sinkDown(1); // move root down to the correct position
     return min;
   }
 
   private void sinkDown(int k) {
     int smallest = k;
-    if (2 * k < position && heap[smallest].data > heap[2 * k].data) {
+    if (2 * k < position && HEAP[smallest].NODE > HEAP[2 * k].NODE) {
       smallest = 2 * k;
     }
-    if (2 * k + 1 < position && heap[smallest].data > heap[2 * k + 1].data) {
+    if (2 * k + 1 < position && HEAP[smallest].NODE > HEAP[2 * k + 1].NODE) {
       smallest = 2 * k + 1;
     }
     if (smallest != k) {
@@ -88,19 +88,20 @@ public class MergeKSortedLists {
     }
   }
 
-  private void swap(int a, int b) {
-    HeapNode temp = heap[a];
-    heap[a] = heap[b];
-    heap[b] = temp;
+  private void swap(int i, int j) {
+    HeapNode temp = HEAP[i];
+    HEAP[i] = HEAP[j];
+    HEAP[j] = temp;
   }
 }
 
 class HeapNode {
-  int data;
-  int listNum;
 
-  HeapNode(int data, int listNum) {
-    this.data = data;
-    this.listNum = listNum;
+  final int NODE;
+  final int LIST_NUM;
+
+  HeapNode(int node, int listNum) {
+    this.NODE = node;
+    this.LIST_NUM = listNum;
   }
 }

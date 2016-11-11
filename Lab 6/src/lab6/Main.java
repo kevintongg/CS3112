@@ -82,7 +82,7 @@ public class Main {
     array[2] = new int[]{2, 9, 11, 22};
     array[3] = new int[]{4, 14, 20, 24};
 
-    System.out.println("we will have four arrays from the board.");
+    System.out.println("We will have four arrays from the board.");
     System.out.println("Array 1: " + Arrays.toString(array[0]));
     System.out.println("Array 2: " + Arrays.toString(array[1]));
     System.out.println("Array 3: " + Arrays.toString(array[2]));
