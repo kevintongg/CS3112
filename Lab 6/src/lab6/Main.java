@@ -98,8 +98,8 @@ public class Main {
       System.err.format("InterruptedException: %s%n", e);
     }
 
-    MergeKSortedLists m = new MergeKSortedLists(array.length);
-    int result[] = m.merge(array, array.length, array[0].length);
+    MergeKSortedLists mergeKSortedLists = new MergeKSortedLists(array.length);
+    int result[] = mergeKSortedLists.mergeLists(array, array.length, array[0].length);
     System.out.println("\nResult: " + Arrays.toString(result));
 
   }
