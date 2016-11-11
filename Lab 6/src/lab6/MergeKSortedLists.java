@@ -70,7 +70,7 @@ class MergeKSortedLists {
     HEAP[1] = HEAP[location - 1]; // replace root with the last element in the heap
     HEAP[location - 1] = null; // set the last node as null
     location--; // reduce the location pointer
-    moveDown(1); // move root down to the correct location
+    moveDown(1); // move root down to correct location
     return node;
   }
 
