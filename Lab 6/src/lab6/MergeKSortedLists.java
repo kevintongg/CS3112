@@ -46,6 +46,7 @@ class MergeKSortedLists {
 
 
   private void insert(int data, int listNum) {
+
     if (location == 0) { // is heap empty?
       HEAP[location + 1] = new HeapNode(data, listNum); // if so, insert the first element in heap
       location = 2;
@@ -56,16 +57,18 @@ class MergeKSortedLists {
   }
 
   private void moveUp() {
-    int position = this.location - 1; // get the last location
-    while (position > 0 && HEAP[position / 2].NODE > HEAP[position].NODE) { // is the parent greater?
+
+    int position = this.location - 1; // get the last node
+    while (position > 0 && HEAP[position / 2].NODE > HEAP[position].NODE) { // is the parent node greater?
       HeapNode node = HEAP[position]; // if so, swap
       HEAP[position] = HEAP[position / 2];
       HEAP[position / 2] = node;
-      position = position / 2; // make location to the parent for next time
+      position = position / 2; // make location at the parent node for next time
     }
   }
 
   private HeapNode getMin() {
+
     HeapNode node = HEAP[1]; // get the root
     HEAP[1] = HEAP[location - 1]; // replace root with the last element in the heap
     HEAP[location - 1] = null; // set the last node as null
@@ -75,6 +78,7 @@ class MergeKSortedLists {
   }
 
   private void moveDown(int k) {
+
     int smallest = k;
     if (2 * k < location && HEAP[smallest].NODE > HEAP[2 * k].NODE) {
       smallest = 2 * k;
@@ -89,6 +93,7 @@ class MergeKSortedLists {
   }
 
   private void swap(int i, int j) {
+
     HeapNode temp = HEAP[i];
     HEAP[i] = HEAP[j];
     HEAP[j] = temp;
