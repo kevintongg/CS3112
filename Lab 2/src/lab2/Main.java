@@ -103,10 +103,10 @@ public class Main {
     for (int i = 1; i < list.length; i++) {
       int temp = list[i];
       int j;
-      for (j = i - 1; i >= 0 && list[i] > temp; i--) {
-        list[i + 1] = list[i];
+      for (j = i - 1; j >= 0 && list[j] > temp; j--) {
+        list[j + 1] = list[j];
       }
-      list[i + 1] = temp;
+      list[j + 1] = temp;
     }
   }
 }
