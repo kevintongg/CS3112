@@ -1,4 +1,4 @@
-package lab5;
+package assignment5;
 
 import java.util.Random;
 import java.util.Scanner;

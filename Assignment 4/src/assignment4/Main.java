@@ -1,4 +1,4 @@
-package lab4;
+package assignment4;
 
 import java.util.Arrays;
 import java.util.Random;

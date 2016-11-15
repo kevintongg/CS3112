@@ -1,4 +1,4 @@
-package lab1;
+package assignment1;
 
 import java.util.Scanner;
 
@@ -15,7 +15,7 @@ public class PrimeNumber {
 
     if (n >= 1) {
       System.out.println("First " + n + " prime numbers are:");
-      //2 is a known lab1 number
+      //2 is a known assignment1 number
       System.out.println(2);
     }
 
