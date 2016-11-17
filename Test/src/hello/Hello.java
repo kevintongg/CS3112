@@ -38,11 +38,17 @@ class Hello {
 
   private static <E extends Comparable<E>> void quickSort(E[] list, int first, int last) { // helper method
 
-    if (last > first) {
+    if (first < last) {
       int pivotIndex = partition(list, first, last);
       quickSort(list, first, pivotIndex - 1); // recursive call
       quickSort(list, pivotIndex + 1, last);
     }
+  }
+
+  private static <E extends Comparable<E>> void randomizedPartition(E[] list, int first, int last) {
+
+//    E pivot =
+
   }
 
   private static <E extends Comparable<E>> int partition(E[] list, int first, int last) {
