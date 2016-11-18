@@ -4,38 +4,36 @@ import java.util.Scanner;
 
 public class Solution {
 
-  public static void insertionSortPart2(int[] list) {
-    // Fill up the code for the required logic here
-    // Manipulate the array as required
-    // The code for Input/Output is already provided
-
-    for (int i = 1; i < list.length; i++) {
-      int temp = list[i];
-      int j;
-      for (j = i - 1; j >= 0 && list[j] > temp; j--) {
-        list[j + 1] = list[j];
-      }
-      list[j + 1] = temp;
-      printArray(list);
-    }
-  }
-
-
   public static void main(String[] args) {
-    Scanner in = new Scanner(System.in);
-    int s = in.nextInt();
-    int[] ar = new int[s];
-    for (int i = 0; i < s; i++) {
-      ar[i] = in.nextInt();
-    }
-    insertionSortPart2(ar);
+
+    execution();
+
   }
 
-  private static void printArray(int[] ar) {
-    for (int n : ar) {
-      System.out.print(n + " ");
-    }
-    System.out.println("");
-  }
+  private static void execution() {
 
+    Scanner sc = new Scanner(System.in);
+
+    int size;
+    size = sc.nextInt();
+
+    if (size > 10) {
+      size = 10;
+    }
+
+    long[] array = new long[size];
+
+    for (int i = 0; i < array.length; i++) {
+      array[i] = (int) (Math.random() * Math.pow(10, 10));
+    }
+
+    long sum = 0;
+
+    for (long i : array) {
+      sum += i;
+    }
+
+    System.out.println(sum);
+
+  }
 }

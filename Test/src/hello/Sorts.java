@@ -1,11 +1,18 @@
 package hello;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Sorts {
 
   public static void main(String[] args) {
+
+    Integer[] array = {4, 2, 1, 5};
+
+    System.out.println(Arrays.toString(array));
+    quickSort(array);
+    System.out.println(Arrays.toString(array));
 
   }
 
