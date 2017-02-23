@@ -40,7 +40,9 @@ public class Main {
           System.out.println("Please enter a value for n: ");
           n = SC.nextLong();
 
-          System.out.println("For your value of a = " + a + " and n = " + n + " your computation of a^n is: " + pow(a, n));
+          System.out.println(
+              "For your value of a = " + a + " and n = " + n + " your computation of a^n is: "
+                  + pow(a, n));
           break;
       }
       if (choice < 0 || choice > 3) {
@@ -98,7 +100,9 @@ public class Main {
     num = SC.nextInt();
 
     if (exists(list, num)) {
-      System.out.println("The number you have chosen exists and the index for your value is: " + binarySearch(list, num) + ".");
+      System.out.println(
+          "The number you have chosen exists and the index for your value is: " + binarySearch(list,
+              num) + ".");
     } else {
       System.out.println("Sorry! Your number does not exist!");
     }

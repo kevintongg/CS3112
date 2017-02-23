@@ -6,36 +6,36 @@
 
 // Recursive
 function dfs(tree, val) {
-    if (tree === null) {
-        return false;
-    }
+  if (tree === null) {
+    return false;
+  }
 
-    if (tree.val === search) {
-        return true;
-    }
+  if (tree.val === search) {
+    return true;
+  }
 
-    return (dfs(tree.left, search) || dfs(tree.right, search));
+  return (dfs(tree.left, search) || dfs(tree.right, search));
 }
 
 // Iterative
 function dfs(tree, val) {
-    // let stack = []
+  // let stack = []
 
-    stack.push(tree);
-    while (stack.length > 0) {
-        // let node = stack.pop();
+  stack.push(tree);
+  while (stack.length > 0) {
+    // let node = stack.pop();
 
-        if (node.val === val) {
-            return true;
-        }
-
-        if (node.left) {
-            stack.push(node.left);
-        }
-        if (node.right) {
-            stack.push(node.right);
-        }
+    if (node.val === val) {
+      return true;
     }
 
-    return false;
+    if (node.left) {
+      stack.push(node.left);
+    }
+    if (node.right) {
+      stack.push(node.right);
+    }
+  }
+
+  return false;
 }

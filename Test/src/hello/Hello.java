@@ -36,7 +36,8 @@ class Hello {
     quickSort(list, 0, list.length - 1);
   }
 
-  private static <E extends Comparable<E>> void quickSort(E[] list, int first, int last) { // helper method
+  private static <E extends Comparable<E>> void quickSort(E[] list, int first,
+      int last) { // helper method
 
     if (first < last) {
       int pivotIndex = partition(list, first, last);

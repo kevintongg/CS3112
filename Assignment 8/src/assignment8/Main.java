@@ -1,6 +1,10 @@
 package assignment8;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
 
 
 public class Main {
@@ -139,7 +143,8 @@ public class Main {
     quickSort(list, 0, list.length - 1);
   }
 
-  private static <E extends Comparable<E>> void quickSort(E[] list, int first, int last) { // helper method
+  private static <E extends Comparable<E>> void quickSort(E[] list, int first,
+      int last) { // helper method
 
     if (last > first) {
       int pivotIndex = partition(list, first, last);

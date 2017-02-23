@@ -101,8 +101,9 @@ public class Main {
 
     for (int i = mid; i >= low; i--) {
       sum += array[i];
-      if (sum > leftSum)
+      if (sum > leftSum) {
         leftSum = sum;
+      }
     }
 
     sum = 0;
@@ -110,8 +111,9 @@ public class Main {
 
     for (int i = mid + 1; i <= high; i++) {
       sum += array[i];
-      if (sum > rightSum)
+      if (sum > rightSum) {
         rightSum = sum;
+      }
     }
 
     return leftSum + rightSum;
@@ -119,8 +121,9 @@ public class Main {
 
   private static int maximumSubarray(int array[], int low, int high) {
 
-    if (low == high)
+    if (low == high) {
       return array[low];
+    }
 
     int mid = (low + high) / 2;
 

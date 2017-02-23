@@ -119,7 +119,8 @@ public class Sorts {
     quickSort(list, 0, list.length - 1);
   }
 
-  private static <E extends Comparable<E>> void quickSort(E[] list, int first, int last) { // helper method
+  private static <E extends Comparable<E>> void quickSort(E[] list, int first,
+      int last) { // helper method
 
     if (last > first) {
       int pivotIndex = partition(list, first, last);

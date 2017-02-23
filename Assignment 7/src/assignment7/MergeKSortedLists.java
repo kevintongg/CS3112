@@ -35,7 +35,8 @@ class MergeKSortedLists {
       result[counter] = min.NODE;
       index[min.LIST_NUM]++;
       if (index[min.LIST_NUM] < n) {
-        insert(list[min.LIST_NUM][index[min.LIST_NUM]], min.LIST_NUM); // insert next element in list
+        insert(list[min.LIST_NUM][index[min.LIST_NUM]],
+            min.LIST_NUM); // insert next element in list
       } else {
         insert(Integer.MAX_VALUE, min.LIST_NUM); // if no more, put positive infinity
       }
@@ -59,7 +60,8 @@ class MergeKSortedLists {
   private void moveUp() {
 
     int position = this.location - 1; // get the last node
-    while (position > 0 && HEAP[position / 2].NODE > HEAP[position].NODE) { // is the parent node greater?
+    while (position > 0
+        && HEAP[position / 2].NODE > HEAP[position].NODE) { // is the parent node greater?
       HeapNode node = HEAP[position]; // if so, swap
       HEAP[position] = HEAP[position / 2];
       HEAP[position / 2] = node;
